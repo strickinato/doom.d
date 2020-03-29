@@ -41,6 +41,7 @@ font string. You generally only need these two:
 #+END_SRC
 
 * UI Defaults
+** Defaults
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 #+BEGIN_SRC emacs-lisp
@@ -48,6 +49,15 @@ font string. You generally only need these two:
 (setq display-line-numbers-type t)
 
 #+END_SRC
+** Treemacs
+Find the treemacs config options[[https://github.com/Alexander-Miller/treemacs#installation][ here]]
+
+#+begin_src emacs-lisp :tangle yes
+
+(after! treemacs
+  (treemacs-resize-icons 0))
+
+#+end_src
 
 * Org
 
