@@ -1,4 +1,4 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 * Personal Info
 
@@ -8,6 +8,51 @@
 
 (setq user-full-name "Aaron Strick"
       user-mail-address "aaronstrick@gmail.com")
+
+#+END_SRC
+
+* Org
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+#+begin_src emacs-lisp :tangle yes
+
+    (setq org-directory "~/Dropbox/zettel")
+    (setq +org-capture-todo-file "~/Dropbox/zettel/inbox/capture.org")
+
+#+end_src
+
+** Org capture in other contexts:
+
+In support of: https://github.com/jjasghar/alfred-org-capture/blob/master/el/alfred-org-capture.el
+
+In order to quickly capture something when I'm not in an emacs context:
+
+#+begin_src emacs-lisp :tangle yes
+
+    (defun make-orgcapture-frame ()
+        "Create a new frame and run org-capture."
+        (interactive)
+        (make-frame '((name . "remember") (width . 80) (height . 16)
+                        (top . 400) (left . 300)
+                        (font . "-apple-Monaco-medium-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+                    ))
+        (select-frame-by-name "remember")
+        (org-capture))
+
+#+end_src
+
+
+
+** Org Jira
+*** TODO Need to figure out how to only load this on my work context:
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+
+(use-package! org-jira
+  :after org
+  :config
+  (setq jiralib-url "https://fictiv.atlassian.net"))
 
 #+END_SRC
 
@@ -22,7 +67,7 @@ are the three important ones:
 
 They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 font string. You generally only need these two:
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 
 (setq doom-font (font-spec :family "Fira Code" :size 14))
 
@@ -34,7 +79,7 @@ font string. You generally only need these two:
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 
 (setq doom-theme 'doom-outrun-electric)
 
@@ -58,12 +103,11 @@ Find the treemacs config options[[https://github.com/Alexander-Miller/treemacs#i
   (treemacs-resize-icons 0))
 
 #+end_src
-
-* Org
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+* Elfeed / RSS
+#+begin_src emacs-lisp :tangle yes
+(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+(elfeed-org)
+#+end_src
 
 * Doom "docs"
 
@@ -86,7 +130,7 @@ they are implemented.
 
 * Zetteldeft
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 
 (use-package! zetteldeft
   :config
@@ -97,7 +141,7 @@ they are implemented.
 
 * Bindings
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 
 (map!
     :leader
@@ -107,12 +151,3 @@ they are implemented.
     )
 #+END_SRC
 
-* Org extension
-#+BEGIN_SRC emacs-lisp
-
-(use-package! org-jira
-  :after org
-  :config
-  (setq jiralib-url "https://fictiv.atlassian.net"))
-
-#+END_SRC
