@@ -1,3 +1,4 @@
+* Directives
 ;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 * Personal Info
@@ -46,6 +47,7 @@ In order to quickly capture something when I'm not in an emacs context:
 
 ** Org Jira
 *** TODO Need to figure out how to only load this on my work context:
+*** Setting it up
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 
