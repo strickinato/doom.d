@@ -4,9 +4,8 @@
 *** https://lukesmith.xyz/rss.xml
 ** Programming  :programming:
 *** https://christine.website/blog.rss
+*** https://cli.fan/posts/index.xml
 ** Org, etc.    :emacs:
 *** https://patrickskiba.com/feed.xml
-** Security :security:
-*** http://feeds.feedburner.com/TroyHunt?format=xml
 ** Hardware :hardware:
 https://n-o-d-e.net/rss/rss.xml
