@@ -1,0 +1,12 @@
+#+TITLE: Elfeed
+* Blogs :elfeed:
+** Linux        :linux:
+*** https://lukesmith.xyz/rss.xml
+** Programming  :programming:
+*** https://christine.website/blog.rss
+** Org, etc.    :emacs:
+*** https://patrickskiba.com/feed.xml
+** Security :security:
+*** http://feeds.feedburner.com/TroyHunt?format=xml
+** Hardware :hardware:
+https://n-o-d-e.net/rss/rss.xml
